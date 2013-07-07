@@ -1,4 +1,4 @@
 bigData
 =======
 
-Essential Node Js Tools for data mining 
+Essential Node Js Modules, I build for data mining 
