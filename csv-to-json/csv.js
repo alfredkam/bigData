@@ -6,7 +6,7 @@ exports.parse = function(filename) {
 
 	var tokens = csv[0].split(",");
 
-	for(var i=1;i < csv.length;i++) {
+	for(var i=1;i < (csv.length - 1);i++) {
 		var content = csv[i].split(",");
 		var tmp = {};
 		for(var j=0;j < tokens.length; j++) {
@@ -30,7 +30,7 @@ exports.write = function(filename) {
 		if(err)
 			console.log(err)
 		else
-			console.log("File saved");
+			console.log("File "+filename+ " saved");
 	});
 }
 
