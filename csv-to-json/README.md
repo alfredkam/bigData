@@ -9,11 +9,21 @@ fs
 
 Usage
 =====
+Parse a csv file like this:
+```javascript
 var csv = require("./csv.js");
+var json = csv.parse('path/to/file'); // Console reads “Parsed Items: #”
+```
 
-//parses file into json and returns a json object<br>
-var json = csv.parse(/*filename to parse from*/);
+Writes the parsed file to a file like this:
+```javascript
+csv.write('path/to/file'); // Console reads “Parsed Items: #”
+```
 
-//writes the parsed file to a file<br>
-csv.write(/*filename to be written to */);
+---
 
+By default, a report is sent to the console (“Parsed Items: #” for `.parse()`; “File saved” for `.write()`). You can pass a second argument `false` to bypass this behavior. Like so:
+```javascript
+var json = csv.parse('path/to/file', false);
+csv.write('path/to/file', false);
+```
