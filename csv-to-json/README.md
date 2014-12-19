@@ -22,8 +22,11 @@ csv.write('path/to/file'); // Console reads “Parsed Items: #”
 
 ---
 
-By default, a report is sent to the console (“Parsed Items: #” for `.parse()`; “File saved” for `.write()`). You can pass a second argument `false` to bypass this behavior. Like so:
+By default, a report is sent to the console (“Parsed Items: #” for `.parse()`; “File saved” for `.write()`). You can pass an config object as a second argument with `console: false` to bypass this behavior. Like so:
 ```javascript
-var json = csv.parse('path/to/file', false);
-csv.write('path/to/file', false);
+var config = {
+    console: false
+}
+var json = csv.parse('path/to/file', config);
+csv.write('path/to/file', config);
 ```

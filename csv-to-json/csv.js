@@ -1,9 +1,9 @@
 var fs = require('fs');
 
-exports.parse = function(filename, reportToConsole) {
+exports.parse = function(filename, config) {
 	var csv = fs.readFileSync(filename).toString().split("\n");
 	var json = [];
-	reportToConsole = typeof(reportToConsole) !== 'undefined' ? reportToConsole : true;
+	config.console = typeof(config.console) !== 'undefined' ? config.console : true;
 
 	var tokens = csv[0].split(",");
 
@@ -20,7 +20,7 @@ exports.parse = function(filename, reportToConsole) {
 		json.push(tmp);
 	}
 
-	if (reportToConsole) {
+	if (config.console) {
 		console.log("Parsed Items: "+json.length);
 	}
 
@@ -28,14 +28,14 @@ exports.parse = function(filename, reportToConsole) {
 	return json;
 }
 
-exports.write = function(filename, reportToConsole) {
+exports.write = function(filename, config) {
 	var json = this.json;
-	reportToConsole = typeof(reportToConsole) !== 'undefined' ? reportToConsole : true;
+	config.console = typeof(config.console) !== 'undefined' ? config.console : true;
 
 	fs.writeFile(filename, JSON.stringify(json), function(err) {
 		if (err) {
 			console.log(err);
-		} else if (reportToConsole) {
+		} else if (config.console) {
 			console.log("File saved");
 		}
 	});
