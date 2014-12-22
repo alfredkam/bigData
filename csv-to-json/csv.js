@@ -3,7 +3,9 @@ var fs = require('fs');
 exports.parse = function(filename, config) {
 	var csv = fs.readFileSync(filename).toString().split("\n");
 	var json = [];
-	config.console = typeof(config.console) !== 'undefined' ? config.console : true;
+
+	var defaults = { console: true }
+	config = typeof(config) !== 'undefined' ? config : defaults;
 
 	var tokens = csv[0].split(",");
 
@@ -30,7 +32,9 @@ exports.parse = function(filename, config) {
 
 exports.write = function(filename, config) {
 	var json = this.json;
-	config.console = typeof(config.console) !== 'undefined' ? config.console : true;
+
+	var defaults = { console: true }
+	config = typeof(config) !== 'undefined' ? config : defaults;
 
 	fs.writeFile(filename, JSON.stringify(json), function(err) {
 		if (err) {
