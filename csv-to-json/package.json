@@ -1,0 +1,25 @@
+{
+  "name": "csv-to-json",
+  "version": "0.0.2",
+  "description": "parses csv and returns it into json object",
+  "main": "csv.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+	"node": ">=0.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alfredkam/bigData/tree/master/csv-to-json"
+  },
+  "keywords": [
+    "csv",
+    "csv to json",
+    "json",
+    "json object"
+  ],
+  "author": "alfred kam",
+  "license": "BSD",
+  "readmeFilename": "README.md"
+}
