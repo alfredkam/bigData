@@ -1,0 +1,2 @@
+var data = "Sally Whittaker,2018,McCarren House,312,3.75\nBelinda Jameson,2017,Cushing House,148,3.52\nJeff Smith,2018,Prescott House,17-D,3.20\nSandy Allen,2019,Oliver House,108,3.48";
+module.exports = data;

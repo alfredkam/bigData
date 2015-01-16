@@ -9,33 +9,33 @@ module.exports = {
         var opts = config.opts || {};   // options to enable configurations
         var json = [];
 
-        if (!filename) {
-            next('Missing filename');
-        }
-
-        var csv = fs.readFileSync(filename).toString().split("\n");
-        var tokens = csv[0].split(",");
-
-        for(var i=1;i < csv.length;i++) {
-            var content = csv[i].split(",");
-            var tmp = {};
-            for(var j=0;j < tokens.length; j++) {
-                try {
-                    tmp[tokens[j]] = content[j];
-                } catch(err) {
-                    tmp[tokens[j]] = "";
-                }
+        fs.readFile(filename, function (err, data) {
+            if (err) {
+                return next(err);
             }
-            json.push(tmp);
-        }
-        next(null, json);
+            var csv = data.toString().split("\n");
+            var tokens = csv[0].split(",");
+            for(var i=1;i < csv.length;i++) {
+                var content = csv[i].split(",");
+                var tmp = {};
+                for(var j=0;j < tokens.length; j++) {
+                    try {
+                        tmp[tokens[j]] = content[j];
+                    } catch(err) {
+                        tmp[tokens[j]] = "";
+                    }
+                }
+                json.push(tmp);
+            }
+            next(null, json);
+        });
+        
         return;
     },
     write: function (config, next) {
-        fs.writeFile(filename, JSON.stringify(json), function(err) {
+        fs.writeFile(config.filename, JSON.stringify(config.json), function(err) {
             if (err) {
-                next(err);
-                return;
+                return next(err);
             }
             next(null, "File saved");
             return;
