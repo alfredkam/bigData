@@ -1,6 +1,6 @@
 {
   "name": "csv-to-json",
-  "version": "0.0.5",
+  "version": "0.0.4",
   "description": "parses csv and returns it into json object",
   "main": "csv.js",
   "scripts": {
