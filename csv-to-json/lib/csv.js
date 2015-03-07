@@ -13,7 +13,7 @@ module.exports = {
             if (err) {
                 return next(err);
             }
-            var csv = data.toString().split("\n");
+            var csv = data.toString().split(/\r\n|\n|\r/);
             var tokens = csv[0].split(",");
             for(var i=1;i < csv.length;i++) {
                 var content = csv[i].split(",");
