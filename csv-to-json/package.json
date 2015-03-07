@@ -1,10 +1,11 @@
 {
   "name": "csv-to-json",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "parses csv and returns it into json object",
   "main": "csv.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha test -- --recursive",
+    "coveralls": "./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha test -- --recursive --report loconly -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -20,10 +21,12 @@
     "json object"
   ],
   "author": "alfred kam",
-  "license": "BSD",
-  "readmeFilename": "README.md",
+  "license": "MIT",
   "devDependencies": {
-    "chai": "^1.10.0",
-    "mocha": "^2.1.0"
+    "chai": "^2.0.0",
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.5",
+    "mocha": "^2.1.0",
+    "mocha-lcov-reporter": "0.0.1"
   }
 }

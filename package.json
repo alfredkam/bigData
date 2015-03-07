@@ -1,0 +1,33 @@
+{
+  "name": "big-data",
+  "version": "0.0.0",
+  "description": "big data",
+  "main": "csv.js",
+  "scripts": {
+    "test": "./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha csv-to-json/test -- --recursive",
+    "coveralls": "./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha csv-to-json/test -- --recursive --report loconly -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alfredkam/bigData"
+  },
+  "keywords": [
+    "csv",
+    "csv to json",
+    "json",
+    "json object"
+  ],
+  "author": "alfred kam",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "chai": "^2.0.0",
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.5",
+    "mocha": "^2.1.0",
+    "mocha-lcov-reporter": "0.0.1"
+  }
+}
