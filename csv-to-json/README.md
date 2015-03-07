@@ -30,3 +30,6 @@ var config = {
 var json = csv.parse('path/to/file', config);
 csv.write('path/to/file', config);
 ```
+
+###Test
+```npm test```
