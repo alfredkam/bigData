@@ -37,7 +37,7 @@ module.exports = {
             if (err) {
                 return next(err);
             }
-            next(null, "File saved");
+            next(null);
             return;
         });
     }

@@ -36,16 +36,5 @@ var callback = function(err) {
 };
 ```
 
----
-
-By default, a report is sent to the console (“Parsed Items: #” for `.parse()`; “File saved” for `.write()`). You can pass an config object as a second argument with `console: false` to bypass this behavior. Like so:
-```javascript
-var config = {
-    console: false
-}
-var json = csv.parse('path/to/file', config);
-csv.write('path/to/file', config);
-```
-
 ###Test
 ```npm test```
