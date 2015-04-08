@@ -7,17 +7,33 @@
 
 Converts your csv into json structure
 
-Usage
-=====
-Parse a csv file like this:
+##Usage
 ```javascript
-var csv = require("./csv.js");
-var json = csv.parse('path/to/file'); // Console reads “Parsed Items: #”
+var csv = require('csv-to-json');
+```
+###.parse(obj, callback);
+Parses the csv and returns it in JSON format
+Expected parameters of
+```javascript
+var obj = {
+    filename: PATH_TO_FILE
+};
+var callback = function(err, json) {
+    // Do something
+};
 ```
 
-Writes the parsed file to a file like this:
+###.writeJsonToFile(obj, callback)
+Writes JSON to file
 ```javascript
-csv.write('path/to/file'); // Console reads “Parsed Items: #”
+var obj = {
+    filename: PATH_TO_FILE,
+    json: JSON_OBJECT
+};
+
+var callback = function(err) {
+    // Do something
+};
 ```
 
 ---

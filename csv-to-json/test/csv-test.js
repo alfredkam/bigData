@@ -29,7 +29,7 @@ describe('csv parse test', function (){
     });
 });
 
-describe('csv write test', function (){
+describe('csv write json test', function (){
     var fs = {
         writeFile: function () {
             var next = arguments[arguments.length - 1];
@@ -41,7 +41,7 @@ describe('csv write test', function (){
         csv.setfs(fs);
     });
     it('should be able to write csv', function (done) {
-        csv.write({
+        csv.writeJsonToFile({
             json: sampleJson,
             filename: ''
         }, function () {

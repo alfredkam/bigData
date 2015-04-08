@@ -32,7 +32,7 @@ module.exports = {
         
         return;
     },
-    write: function (config, next) {
+    writeJsonToFile: function (config, next) {
         fs.writeFile(config.filename, JSON.stringify(config.json), function(err) {
             if (err) {
                 return next(err);
