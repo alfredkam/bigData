@@ -9,14 +9,18 @@ module.exports = {
         var opts = config.opts || {};   // options to enable configurations
         var json = [];
 
+        var getCommaSeparated = function (str) {
+            return str.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
+        };
+
         fs.readFile(filename, function (err, data) {
             if (err) {
                 return next(err);
             }
             var csv = data.toString().split(/\r\n|\n|\r/);
-            var tokens = csv[0].split(",");
+            var tokens = getCommaSeparated(csv[0]);
             for(var i=1;i < csv.length;i++) {
-                var content = csv[i].split(",");
+                var content = getCommaSeparated(csv[i]);
                 var tmp = {};
                 for(var j=0;j < tokens.length; j++) {
                     try {
