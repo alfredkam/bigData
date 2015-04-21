@@ -9,6 +9,7 @@ module.exports = {
         var opts = config.opts || {};   // options to enable configurations
         var json = [];
 
+        // Get comma separated sub strings, excluding those inside double quotes.
         var getCommaSeparated = function (str) {
             return str.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
         };
