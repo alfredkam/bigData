@@ -11,7 +11,7 @@ module.exports = {
 
         // Get comma separated sub strings, excluding those inside double quotes.
         var getCommaSeparated = function (str) {
-            return str.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
+            return str.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
         };
 
         fs.readFile(filename, function (err, data) {
