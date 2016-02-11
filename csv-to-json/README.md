@@ -38,3 +38,22 @@ var callback = function(err) {
 
 ###Test
 ```npm test```
+
+###Example of parsing a csv file and outputing to json
+
+```javascript
+var write_callback = function(err) {
+    console.log('done!');
+};
+
+var parse_callback = function(err, json) {
+    csv.writeJsonToFile({
+        filename: 'analytics.json',
+        json: json
+    }, write_callback)
+};
+
+var obj = { filename: 'analytics.csv' };
+
+csv.parse(obj, parse_callback);
+```
