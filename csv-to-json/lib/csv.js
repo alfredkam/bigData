@@ -8,10 +8,12 @@ module.exports = {
         var filename = config.filename;
         var opts = config.opts || {};   // options to enable configurations
         var json = [];
+        var separator = config.separator || ',';
+        var regex = new RegExp(separator+'(?=(?:(?:[^"]*"){2})*[^"]*$)');
 
-        // Get comma separated sub strings, excluding those inside double quotes.
+        // Get separator separated sub strings, excluding those inside double quotes.
         var getCommaSeparated = function (str) {
-            return str.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+            return str.split(regex);
         };
 
         fs.readFile(filename, function (err, data) {
@@ -34,7 +36,7 @@ module.exports = {
             }
             next(null, json);
         });
-        
+
         return;
     },
     writeJsonToFile: function (config, next) {
