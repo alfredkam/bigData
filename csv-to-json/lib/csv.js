@@ -22,6 +22,12 @@ module.exports = {
             }
             var csv = data.toString().split(/\r\n|\n|\r/);
             var tokens = getCommaSeparated(csv[0]);
+
+            //remove last token if void. This case should append when a separator is present at the end of the first line
+            if(tokens.length > 0 && tokens[tokens.length-1] === ''){
+                tokens.pop();
+            }
+
             for(var i=1;i < csv.length;i++) {
                 var content = getCommaSeparated(csv[i]);
                 var tmp = {};
