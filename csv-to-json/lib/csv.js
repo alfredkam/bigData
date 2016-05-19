@@ -28,7 +28,7 @@ module.exports = {
                 for(var j=0;j < tokens.length; j++) {
                     try {
                         tmp[tokens[j]] = content[j];
-                    } catch(err) {
+                    } catch(e) {
                         tmp[tokens[j]] = "";
                     }
                 }
