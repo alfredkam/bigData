@@ -16,7 +16,8 @@ Parses the csv and returns it in JSON format
 Expected parameters of
 ```javascript
 var obj = {
-    filename: PATH_TO_FILE
+    filename: PATH_TO_FILE,
+    separator:',' // optional default is set to ,
 };
 var callback = function(err, json) {
     // Do something
